@@ -1,5 +1,5 @@
 import pygame
-from core.core_config import error_png
+from engine.core.core_config import error_png
 from pathlib import Path
 
 def assets_load(path, scale_global, scale_local=1, bg=False):

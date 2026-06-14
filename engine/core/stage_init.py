@@ -1,5 +1,6 @@
-from core.stage import Stage
 import time
+
+from engine.core.stage import Stage
 
 def init_stages(raw_scenes):
     stages = {}

@@ -1,8 +1,8 @@
-from core.game_class import Game
-from core.stage_init import init_stages
-from list_stage import SCENES
-from core.assets_load import assets_load
-from core import core_config
+from engine.core import core_config
+from engine.core.assets_load import assets_load
+from engine.core.game_class import Game
+from engine.core.stage_init import init_stages
+from engine.scenes.list_stage import SCENES
 
 stages = init_stages(SCENES)
 

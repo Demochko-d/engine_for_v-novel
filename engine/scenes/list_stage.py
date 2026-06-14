@@ -1,5 +1,5 @@
-from core.list_func import *
-from game_config import *
+from engine.config.game_config import *
+from engine.core.list_func import *
 SCENES = {
     'start_menu': {
         'text': f'Добро пожаловать в {name_game}',

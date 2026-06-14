@@ -1,0 +1,10 @@
+.idea/
+venv/
+__pycache__/
+*.py[cod]
+
+saves/*.json
+saves/*.png
+
+assets/bg/*.png
+assets/units/*.png

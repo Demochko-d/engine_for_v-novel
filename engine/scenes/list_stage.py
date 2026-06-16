@@ -1,122 +1,127 @@
-from engine.config.game_config import *
-from engine.core.list_func import *
+from engine.config.game_config import name_game
+from engine.core.list_func import new_stage
+
+
 SCENES = {
-    'start_menu': {
-        'text': f'Добро пожаловать в {name_game}',
-        'name_unit': "pes",
-        'unit': "[ng",
-        'bg': 'png',
-        'vars_return': (
+    "start_menu": {
+        "text": f"{name_game}\nКороткая демо-сцена: здесь можно посмотреть, какие базовые возможности уже есть в движке.",
+        "name_unit": None,
+        "unit": None,
+        "bg": "demo_start",
+        "vars_return": (
             {
-                'text': 'новая игра',
-                'func': new_stage,
-                'args': 'начало',
+                "text": "Начать демо",
+                "func": new_stage,
+                "args": "engine_overview",
             },
             {
-                'text': 'сохранdjnfffvifvinfovneovneonveovgnerongornения',
-                'func': new_stage,
-                'args': "start_2",
+                "text": "О движке",
+                "func": new_stage,
+                "args": "engine_about",
             },
-            {
-                'text': 'сохранd2140927430rnения',
-                'func': None,
-                'args': None,
-            },
-
         ),
-        'scale_unit': 1,
-        'unit_offset_y': 150,
-        'unit_offset_x': -150,
+        "scale_unit": 1,
+        "unit_offset_y": 0,
+        "unit_offset_x": 0,
     },
-    'начало': {
-        'text': 'Это была темная ночь, я крепко спал под шум моего старого советского холодильника',
-        'name_unit': игорь,
-        'unit': игорь,
-        'bg': 'хата',
-        'vars_return': (
+    "engine_overview": {
+        "text": "Движок показывает фон, имя говорящего, текст с эффектом печати и кнопки выбора. Сцены описываются обычным словарем Python.",
+        "name_unit": "Демо",
+        "unit": "demo_character",
+        "bg": "demo_room",
+        "vars_return": (
             {
-                'text': 'далее...',
-                'func': new_stage,
-                'args': 'начало2',
+                "text": "Показать интерфейс",
+                "func": new_stage,
+                "args": "ui_features",
             },
-
+            {
+                "text": "Показать переходы",
+                "func": new_stage,
+                "args": "flow_features",
+            },
         ),
-        'scale_unit': 1,
-        'unit_offset_y': 150,
-        'unit_offset_x': 150,
+        "scale_unit": 1,
+        "unit_offset_y": 120,
+        "unit_offset_x": -120,
     },
-    'начало2': {
-        'text': 'Но счастье мое длилось не долго, примерно в час ночи я проснулся от странного шума....',
-        'name_unit': "игорь",
-        'unit': "игорь",
-        'bg': 'хата',
-        'vars_return': (
+    "ui_features": {
+        "text": "В интерфейсе уже есть адаптация под размер окна, анимация наведения на кнопки, верхние кнопки сохранения и загрузки, а также меню сохранений.",
+        "name_unit": "Интерфейс",
+        "unit": "demo_character",
+        "bg": "demo_room",
+        "vars_return": (
             {
-                'text': 'далее...',
-                'func': new_stage,
-                'args': 'начало3',
+                "text": "К переходам",
+                "func": new_stage,
+                "args": "flow_features",
             },
-
+            {
+                "text": "В меню",
+                "func": new_stage,
+                "args": "start_menu",
+            },
         ),
-        'scale_unit': 1,
-        'unit_offset_y': 150,
-        'unit_offset_x': 150,
+        "scale_unit": 0.9,
+        "unit_offset_y": 120,
+        "unit_offset_x": -160,
     },
-    'начало3': {
-        'text': 'Кто то стучал ночью по батареям...',
-        'name_unit': "игорь",
-        'unit': "игорь",
-        'bg': 'хата',
-        'vars_return': (
+    "flow_features": {
+        "text": "Переходы между сценами идут через затемнение. Выборы могут вести к разным сценам, а состояние текущей сцены можно сохранить в JSON.",
+        "name_unit": "Сцены",
+        "unit": None,
+        "bg": "demo_transition",
+        "vars_return": (
             {
-                'text': 'Подойти к батарее',
-                'func': new_stage,
-                'args': 'начало5',
+                "text": "Вернуться к обзору",
+                "func": new_stage,
+                "args": "engine_overview",
             },
             {
-                'text': 'Лечь спать обратно',
-                'func': new_stage,
-                'args': 'начало4',
-            }
-
+                "text": "Завершить демо",
+                "func": new_stage,
+                "args": "demo_finish",
+            },
         ),
-        'scale_unit': 0.2,
-        'unit_offset_y': -80,
-        'unit_offset_x': -600,
+        "scale_unit": 1,
+        "unit_offset_y": 0,
+        "unit_offset_x": 0,
     },
-    'начало4': {
-        'text': 'Понадеявшись что шум продлится недолго я закрыл глаза и попытался заснуть',
-        'name_unit': 'игорь',
-        'unit': 'игорь',
-        'bg': 'черный',
-        'vars_return': (
+    "engine_about": {
+        "text": "Это минимальный Python/Pygame-движок для визуальных новелл: сцены, выборы, фон, персонаж, плавные переходы, сохранения и загрузка.",
+        "name_unit": None,
+        "unit": None,
+        "bg": "demo_start",
+        "vars_return": (
             {
-                'text': 'Новая игра',
-                'func': new_stage,
-                'args': 'начало',
+                "text": "Начать демо",
+                "func": new_stage,
+                "args": "engine_overview",
             },
-
+            {
+                "text": "Назад",
+                "func": new_stage,
+                "args": "start_menu",
+            },
         ),
-        'scale_unit': 1,
-        'unit_offset_y': -1000,
-        'unit_offset_x': 0,
+        "scale_unit": 1,
+        "unit_offset_y": 0,
+        "unit_offset_x": 0,
     },
-    'начало5': {
-        'text': 'Подойдя к батарее шум усилился',
-        'name_unit': None,
-        'unit': None,
-        'bg': 'батарея',
-        'vars_return': (
+    "demo_finish": {
+        "text": "Демо закончено. Можно вернуться в начало, нажать сохранение сверху или продолжить расширять список сцен под свою новеллу.",
+        "name_unit": "Готово",
+        "unit": None,
+        "bg": "demo_transition",
+        "vars_return": (
             {
-                'text': 'Новая игра',
-                'func': new_stage,
-                'args': 'начало',
+                "text": "В главное меню",
+                "func": new_stage,
+                "args": "start_menu",
             },
-
         ),
-        'scale_unit': 1,
-        'unit_offset_y': -100,
-        'unit_offset_x': 0,
-    }
-
+        "scale_unit": 1,
+        "unit_offset_y": 0,
+        "unit_offset_x": 0,
+    },
 }
